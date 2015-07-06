@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ps.entidad.Aula" table="AULA" schema="PROSOCIAL" optimistic-lock="version">
+        <id name="idaula" type="string">
+            <column name="IDAULA" length="12" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ciclo" class="com.ps.entidad.Ciclo" fetch="select">
+            <column name="IDCICLO" length="12" not-null="true" />
+        </many-to-one>
+        <many-to-one name="escuela" class="com.ps.entidad.Escuela" fetch="select">
+            <column name="IDESCUELA" length="12" not-null="true" />
+        </many-to-one>
+        <property name="numCiclo" type="big_decimal">
+            <column name="NUM_CICLO" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="numGrupo" type="big_decimal">
+            <column name="NUM_GRUPO" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="usuarioCre" type="string">
+            <column name="USUARIO_CRE" length="12" not-null="true" />
+        </property>
+        <property name="usuarioMod" type="string">
+            <column name="USUARIO_MOD" length="12" />
+        </property>
+        <property name="fechaCre" type="date">
+            <column name="FECHA_CRE" length="7" not-null="true" />
+        </property>
+        <property name="fechaMod" type="date">
+            <column name="FECHA_MOD" length="7" />
+        </property>
+        <set name="detAulaUsuarios" table="DET_AULA_USUARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDAULA" length="12" not-null="true" />
+            </key>
+            <one-to-many class="com.ps.entidad.DetAulaUsuario" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
+    <property name="hibernate.connection.username">PROSOCIAL</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="com/ps/entidad/Rol.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Link.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Proyecto.hbm.xml"/>
+    <mapping resource="com/ps/entidad/DetUsuarioRol.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Archivo.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Ciclo.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Evento.hbm.xml"/>
+    <mapping resource="com/ps/entidad/DetPrivilegioLink.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Usuario.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Escuela.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Facultad.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Asistencia.hbm.xml"/>
+    <mapping resource="com/ps/entidad/TipoEvento.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Inscripcion.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Aula.hbm.xml"/>
+    <mapping resource="com/ps/entidad/DetRolPrivilegio.hbm.xml"/>
+    <mapping resource="com/ps/entidad/DetAulaUsuario.hbm.xml"/>
+    <mapping resource="com/ps/entidad/Privilegio.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

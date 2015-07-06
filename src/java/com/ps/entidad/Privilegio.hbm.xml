@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ps.entidad.Privilegio" table="PRIVILEGIO" schema="PROSOCIAL" optimistic-lock="version">
+        <id name="idprivilegio" type="string">
+            <column name="IDPRIVILEGIO" length="12" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombrePr" type="string">
+            <column name="NOMBRE_PR" length="35" not-null="true" />
+        </property>
+        <property name="estadoPr" type="char">
+            <column name="ESTADO_PR" length="1" not-null="true" />
+        </property>
+        <property name="usuarioCre" type="string">
+            <column name="USUARIO_CRE" length="12" not-null="true" />
+        </property>
+        <property name="usuarioMod" type="string">
+            <column name="USUARIO_MOD" length="12" />
+        </property>
+        <property name="fechaCre" type="date">
+            <column name="FECHA_CRE" length="7" not-null="true" />
+        </property>
+        <property name="fechaMod" type="date">
+            <column name="FECHA_MOD" length="7" />
+        </property>
+        <set name="detPrivilegioLinks" table="DET_PRIVILEGIO_LINK" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPRIVILEGIO" length="12" not-null="true" />
+            </key>
+            <one-to-many class="com.ps.entidad.DetPrivilegioLink" />
+        </set>
+        <set name="detRolPrivilegios" table="DET_ROL_PRIVILEGIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPRIVILEGIO" length="12" not-null="true" />
+            </key>
+            <one-to-many class="com.ps.entidad.DetRolPrivilegio" />
+        </set>
+    </class>
+</hibernate-mapping>

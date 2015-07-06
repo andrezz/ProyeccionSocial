@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ps.entidad.Rol" table="ROL" schema="PROSOCIAL" optimistic-lock="version">
+        <id name="idrol" type="string">
+            <column name="IDROL" length="12" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreRo" type="string">
+            <column name="NOMBRE_RO" length="35" not-null="true" />
+        </property>
+        <property name="estadoRo" type="char">
+            <column name="ESTADO_RO" length="1" not-null="true" />
+        </property>
+        <property name="usuarioCre" type="string">
+            <column name="USUARIO_CRE" length="12" not-null="true" />
+        </property>
+        <property name="usuarioMod" type="string">
+            <column name="USUARIO_MOD" length="12" />
+        </property>
+        <property name="fechaCre" type="date">
+            <column name="FECHA_CRE" length="7" not-null="true" />
+        </property>
+        <property name="fechaMod" type="date">
+            <column name="FECHA_MOD" length="7" />
+        </property>
+        <set name="detUsuarioRols" table="DET_USUARIO_ROL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDROL" length="12" not-null="true" />
+            </key>
+            <one-to-many class="com.ps.entidad.DetUsuarioRol" />
+        </set>
+        <set name="detRolPrivilegios" table="DET_ROL_PRIVILEGIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDROL" length="12" not-null="true" />
+            </key>
+            <one-to-many class="com.ps.entidad.DetRolPrivilegio" />
+        </set>
+    </class>
+</hibernate-mapping>

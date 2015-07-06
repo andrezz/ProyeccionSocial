@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+        <title>Proyeccion Social | Login</title>
+        <link href="css/theme-white.css" rel="stylesheet" type="text/css"/>
+        <link href="css/login.css" rel="stylesheet" type="text/css"/>
+        <link href="css/login_small.css" media="only screen and (max-device-width : 480px)" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <body>
+        <div class="page-header">
+            <div class="row">
+                <center>
+                    <h2 style="margin-bottom: 5px;">Proyeccion Social y Extension Cultural</h2>
+                    <h3>Bienvenidos</h3>
+                </center>
+
+            </div>
+        </div>
+        <div class="page-content">
+            <h:body>
+                <div class="l_box">
+                    <div class="l_header">
+                        <h3 class="text-center">Iniciar Sesion</h3>
+                    </div>
+                    <div class="l_body">
+                        <f:view>
+                            <p:growl id="growl" showDetail="true" life="3000"/>
+                            <h:form>
+                                <h:inputText id="userr" required="true" class="form-control"
+                                             value="#{LoginControl.user}"/>
+                                <p:watermark for="userr" value="Usuario"/>
+                                <h:inputSecret id="clave" required="true" class="form-control"
+                                            value="#{LoginControl.pass}" />
+                                <p:watermark for="clave" value="Clave"/>
+                                <div class="row l_row">
+                                    <h:selectBooleanCheckbox class="pull-left">&nbsp;Recordarme <span><h:outputLink class="pull-right" value="index.html">Olvid&oacute; su contrase&ntilde;a?</h:outputLink>  </span></h:selectBooleanCheckbox>
+                                </div>
+                                <h:commandButton class="btn btn-primary" value="Ingresar" 
+                                                 action="#{LoginControl.ruta() }"/>
+                            </h:form>
+                        </f:view>
+                    </div>
+                    <div class="l_footer">
+                        <hr></hr>
+                        <p class="text-center">Proyeccion Social &copy; 2015</p>
+                    </div>
+                </div>
+
+            </h:body>
+        </div>
+    </body>
+</html>

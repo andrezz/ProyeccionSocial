@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:dataTable value="${mBAula.getLista(LoginControl.rol.get('IDUSUARIO'))}" var="itAula">
+                    <h:column>
+                        <f:facet name="header">Alumno</f:facet>
+                        ${itAula.get('NOMBRE_US')} &nbsp; ${itAula.get('APELLIDOP_US')}&nbsp; ${itAula.get('APELLIDOM_US')}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Codigo</f:facet>
+                            ${itAula.get('CODIGO')}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Ciclo</f:facet>
+                            ${itAula.get('NUM_CICLO')} &nbsp; ${itAula.get('IDROL')}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Grupo</f:facet>
+                        ${itAula.get('NUM_GRUPO')}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Horas</f:facet>
+                        <h:inputText value="${mBAsistencia.horas}">
+                            <f:convertNumber integerOnly="true" type="number"/>
+                        </h:inputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nota</f:facet>
+                        <h:inputText value="${mBAsistencia.nota}">
+                            <f:convertNumber integerOnly="true" type="number"/>
+                        </h:inputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Acciones</f:facet>
+                        <h:commandButton value="Registar" action="${mBAsistencia.registrar()}"/>
+                    </h:column>
+
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

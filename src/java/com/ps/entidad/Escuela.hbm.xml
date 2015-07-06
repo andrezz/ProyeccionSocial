@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ps.entidad.Escuela" table="ESCUELA" schema="PROSOCIAL" optimistic-lock="version">
+        <id name="idescuela" type="string">
+            <column name="IDESCUELA" length="12" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="facultad" class="com.ps.entidad.Facultad" fetch="select">
+            <column name="IDFACULTAD" length="12" not-null="true" />
+        </many-to-one>
+        <property name="nombreEs" type="string">
+            <column name="NOMBRE_ES" length="45" />
+        </property>
+        <set name="aulas" table="AULA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDESCUELA" length="12" not-null="true" />
+            </key>
+            <one-to-many class="com.ps.entidad.Aula" />
+        </set>
+    </class>
+</hibernate-mapping>

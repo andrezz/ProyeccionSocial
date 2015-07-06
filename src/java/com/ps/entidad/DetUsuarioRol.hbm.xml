@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ps.entidad.DetUsuarioRol" table="DET_USUARIO_ROL" schema="PROSOCIAL" optimistic-lock="version">
+        <composite-id name="id" class="com.ps.entidad.DetUsuarioRolId">
+            <key-property name="idrol" type="string">
+                <column name="IDROL" length="12" />
+            </key-property>
+            <key-property name="idusuario" type="string">
+                <column name="IDUSUARIO" length="12" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="rol" class="com.ps.entidad.Rol" update="false" insert="false" fetch="select">
+            <column name="IDROL" length="12" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="com.ps.entidad.Usuario" update="false" insert="false" fetch="select">
+            <column name="IDUSUARIO" length="12" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
