@@ -23,6 +23,7 @@ import javax.faces.context.FacesContext;
 public class MBLogin implements Serializable {
 
     private String user;
+    private String userid;
     private String pass;
     private Map rol;
     private List<Map<String,?>> links;
@@ -79,6 +80,14 @@ public class MBLogin implements Serializable {
 
     public void setLinks(List<Map<String,?>> links) {
         this.links = links;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
     
     

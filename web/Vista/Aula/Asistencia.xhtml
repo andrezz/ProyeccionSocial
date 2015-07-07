@@ -6,11 +6,23 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
+        <link href="../../css/theme-white.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
         <f:view>
+            <div class="page-header">
+                <center><h2>Registro de Asistencia <small> / ${mBAula.escuela}</small></h2></center>
+            </div>
+            <div class="row">
+                <div class="col col-xs-12">
+                    <h3>Seleccionar Evento</h3>
+                    <f:selectItems >
+                        
+                    </f:selectItems>
+                </div>
+            </div>
             <h:form>
-                <h:dataTable value="${mBAula.getLista(LoginControl.rol.get('IDUSUARIO'))}" var="itAula">
+                <h:dataTable value="${mBAula.listaAlumno}" var="itAula">
                     <h:column>
                         <f:facet name="header">Alumno</f:facet>
                         ${itAula.get('NOMBRE_US')} &nbsp; ${itAula.get('APELLIDOP_US')}&nbsp; ${itAula.get('APELLIDOM_US')}
@@ -21,7 +33,7 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">Ciclo</f:facet>
-                            ${itAula.get('NUM_CICLO')} &nbsp; ${itAula.get('IDROL')}
+                            ${itAula.get('NUM_CICLO')}
                     </h:column>
                     <h:column>
                         <f:facet name="header">Grupo</f:facet>

@@ -5,6 +5,7 @@
  */
 package com.ps.beans;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -14,10 +15,10 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class MBAsistencia {
+public class MBAsistencia implements Serializable{
     String idUsuario;
-    int horas;
-    double nota;
+    int horas=5;
+    double nota=20;
     /**
      * Creates a new instance of MBAsistencia
      */
