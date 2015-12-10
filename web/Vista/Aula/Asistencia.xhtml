@@ -16,13 +16,18 @@
             <div class="row">
                 <div class="col col-xs-12">
                     <h3>Seleccionar Evento</h3>
-                    <f:selectItems >
-                        
-                    </f:selectItems>
+                    
+                    <select>
+                        <option>Sembrando Vidas</option>
+                        <option>Sembrando Vidas 2</option>
+                        <option>Sembrando Vidas 3</option>
+                    </select>
                 </div>
             </div>
             <h:form>
-                <h:dataTable value="${mBAula.listaAlumno}" var="itAula">
+                <h:dataTable value="${mBAula.listaAlumno}" var="itAula" 
+                             class="table table-striped table-hover table-responsive table-actions table-bordered"
+                             headerClass="text-center">
                     <h:column>
                         <f:facet name="header">Alumno</f:facet>
                         ${itAula.get('NOMBRE_US')} &nbsp; ${itAula.get('APELLIDOP_US')}&nbsp; ${itAula.get('APELLIDOM_US')}
@@ -41,19 +46,19 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">Horas</f:facet>
-                        <h:inputText value="${mBAsistencia.horas}">
+                        <h:inputText value="${mBAsistencia.horas}" class="form-control" style="width: 70px">
                             <f:convertNumber integerOnly="true" type="number"/>
                         </h:inputText>
                     </h:column>
                     <h:column>
                         <f:facet name="header">Nota</f:facet>
-                        <h:inputText value="${mBAsistencia.nota}">
+                        <h:inputText value="${mBAsistencia.nota}" class="form-control" style="width: 70px">
                             <f:convertNumber integerOnly="true" type="number"/>
                         </h:inputText>
                     </h:column>
                     <h:column>
                         <f:facet name="header">Acciones</f:facet>
-                        <h:commandButton value="Registar" action="${mBAsistencia.registrar()}"/>
+                        <h:commandButton class=" btn btn-success" value="Registar" action="${mBAsistencia.registrar()}"/>
                     </h:column>
 
                 </h:dataTable>

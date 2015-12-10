@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="../../css/theme-white.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <div class="page-header">
+            <center><h2>Eventos</h2></center>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12">
+                <f:view>
+                    <h:form>
+                        <h:dataTable value="${mBEvento.lista}" class="table table-bordered table-condensed table-hover table-striped" var="itEvento">
+                            <h:column>
+                                <f:facet name="header">Nombre</f:facet>
+                                    ${itEvento.get('NOMBRE_EV')}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Fecha</f:facet>
+                                    ${mBEvento.cortarFecha(itEvento.get('FECHA_EV'))}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Lugar</f:facet>
+                                    ${itEvento.get('LUGAR_EV')}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Estado</f:facet>
+                                <label class="label text-success">Activo</label>
+                            </h:column>
+                            <c:if test="${mBEvento.INscrito eq false}">
+                                <h:column>
+                                    <f:facet name="header">Inscripcion</f:facet>
+                                    <h:commandButton class="btn btn-success" value="Inscribirse" action="${mBEvento.inscribirse()}"/>
+                                </h:column> 
+                            </c:if>
+                            <c:if test="${mBEvento.INscrito eq true}">
+                                <h:column>
+                                    <f:facet name="header">Inscripcion</f:facet>
+                                    <h:commandButton class="btn btn-info" value="Inscrito"/>
+                                </h:column> 
+                            </c:if>
+
+                        </h:dataTable>
+                    </h:form>
+                </f:view>
+
+            </div>
+        </div>
+    </h:body>
+</html>
+
