@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 17/03/2016 11:27:43 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ps.entidad.Usuario" table="USUARIO" schema="PROSOCIAL" optimistic-lock="version">
         <id name="idusuario" type="string">
@@ -29,29 +29,17 @@
         <property name="estadoUs" type="char">
             <column name="ESTADO_US" length="1" not-null="true" />
         </property>
-        <property name="idArchivoFoto" type="string">
-            <column name="ID_ARCHIVO_FOTO" length="12" />
-        </property>
         <property name="codigo" type="string">
             <column name="CODIGO" length="10" />
         </property>
-        <set name="detUsuarioRols" table="DET_USUARIO_ROL" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="IDUSUARIO" length="12" not-null="true" />
-            </key>
-            <one-to-many class="com.ps.entidad.DetUsuarioRol" />
-        </set>
+        <property name="idArchivoFoto" type="string">
+            <column name="ID_ARCHIVO_FOTO" length="12" />
+        </property>
         <set name="asistencias" table="ASISTENCIA" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="IDUSUARIO" length="12" not-null="true" />
             </key>
             <one-to-many class="com.ps.entidad.Asistencia" />
-        </set>
-        <set name="detAulaUsuarios" table="DET_AULA_USUARIO" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="IDUSUARIO" length="12" not-null="true" />
-            </key>
-            <one-to-many class="com.ps.entidad.DetAulaUsuario" />
         </set>
         <set name="inscripcions" table="INSCRIPCION" inverse="true" lazy="true" fetch="select">
             <key>

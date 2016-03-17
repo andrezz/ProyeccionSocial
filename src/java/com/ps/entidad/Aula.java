@@ -1,18 +1,15 @@
 package com.ps.entidad;
-// Generated 01/07/2015 06:18:42 AM by Hibernate Tools 4.3.1
+// Generated 17/03/2016 11:27:41 AM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,7 +33,6 @@ public class Aula  implements java.io.Serializable {
      private String usuarioMod;
      private Date fechaCre;
      private Date fechaMod;
-     private Set detAulaUsuarios = new HashSet(0);
 
     public Aula() {
     }
@@ -51,7 +47,7 @@ public class Aula  implements java.io.Serializable {
         this.usuarioCre = usuarioCre;
         this.fechaCre = fechaCre;
     }
-    public Aula(String idaula, Ciclo ciclo, Escuela escuela, BigDecimal numCiclo, BigDecimal numGrupo, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod, Set detAulaUsuarios) {
+    public Aula(String idaula, Ciclo ciclo, Escuela escuela, BigDecimal numCiclo, BigDecimal numGrupo, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod) {
        this.idaula = idaula;
        this.ciclo = ciclo;
        this.escuela = escuela;
@@ -61,7 +57,6 @@ public class Aula  implements java.io.Serializable {
        this.usuarioMod = usuarioMod;
        this.fechaCre = fechaCre;
        this.fechaMod = fechaMod;
-       this.detAulaUsuarios = detAulaUsuarios;
     }
    
      @Id 
@@ -154,15 +149,6 @@ public class Aula  implements java.io.Serializable {
     
     public void setFechaMod(Date fechaMod) {
         this.fechaMod = fechaMod;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="aula")
-    public Set getDetAulaUsuarios() {
-        return this.detAulaUsuarios;
-    }
-    
-    public void setDetAulaUsuarios(Set detAulaUsuarios) {
-        this.detAulaUsuarios = detAulaUsuarios;
     }
 
 

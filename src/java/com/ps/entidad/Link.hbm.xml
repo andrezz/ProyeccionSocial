@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 17/03/2016 11:27:43 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ps.entidad.Link" table="LINK" schema="PROSOCIAL" optimistic-lock="version">
         <id name="idlink" type="string">
@@ -9,22 +9,31 @@
             <generator class="assigned" />
         </id>
         <property name="nombreLink" type="string">
-            <column name="NOMBRE_LINK" />
+            <column name="NOMBRE_LINK" length="35" not-null="true" />
         </property>
         <property name="iconoLink" type="string">
-            <column name="ICONO_LINK" length="25" />
+            <column name="ICONO_LINK" length="65" />
         </property>
         <property name="NOrden" type="big_decimal">
             <column name="N_ORDEN" precision="22" scale="0" />
         </property>
         <property name="link" type="string">
-            <column name="LINK" length="255" />
+            <column name="LINK" not-null="true" />
         </property>
-        <set name="detPrivilegioLinks" table="DET_PRIVILEGIO_LINK" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="IDLINK" length="12" not-null="true" />
-            </key>
-            <one-to-many class="com.ps.entidad.DetPrivilegioLink" />
-        </set>
+        <property name="tipoLink" type="java.lang.Character">
+            <column name="TIPO_LINK" length="1" />
+        </property>
+        <property name="usuarioCre" type="string">
+            <column name="USUARIO_CRE" length="12" />
+        </property>
+        <property name="usuarioMod" type="string">
+            <column name="USUARIO_MOD" length="12" />
+        </property>
+        <property name="fechaCre" type="date">
+            <column name="FECHA_CRE" length="7" />
+        </property>
+        <property name="fechaMod" type="date">
+            <column name="FECHA_MOD" length="7" />
+        </property>
     </class>
 </hibernate-mapping>

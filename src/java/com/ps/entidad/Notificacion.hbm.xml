@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/03/2016 11:27:43 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ps.entidad.Notificacion" table="NOTIFICACION" schema="PROSOCIAL" optimistic-lock="version">
+        <id name="idnotificacion" type="string">
+            <column name="IDNOTIFICACION" length="12" />
+            <generator class="assigned" />
+        </id>
+        <property name="idusuario" type="string">
+            <column name="IDUSUARIO" length="12" />
+        </property>
+        <property name="titulo" type="string">
+            <column name="TITULO" length="35" />
+        </property>
+        <property name="contenido" type="string">
+            <column name="CONTENIDO" />
+        </property>
+        <property name="icono" type="string">
+            <column name="ICONO" length="35" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="FECHA" length="7" />
+        </property>
+        <property name="tipo" type="java.lang.Character">
+            <column name="TIPO" length="1" />
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="ESTADO" length="1" />
+        </property>
+        <property name="usuarioCre" type="string">
+            <column name="USUARIO_CRE" length="12" />
+        </property>
+        <property name="usuarioMod" type="string">
+            <column name="USUARIO_MOD" length="12" />
+        </property>
+        <property name="fechaCre" type="date">
+            <column name="FECHA_CRE" length="7" />
+        </property>
+        <property name="fechaMod" type="date">
+            <column name="FECHA_MOD" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

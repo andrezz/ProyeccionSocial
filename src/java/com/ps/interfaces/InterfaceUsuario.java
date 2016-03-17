@@ -5,7 +5,6 @@
  */
 package com.ps.interfaces;
 
-import com.ps.entidad.Usuario;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +14,5 @@ import java.util.Map;
  */
 public interface InterfaceUsuario {
     public Map loginControl(String user, String pass);
-    public List<Usuario> listarUsuario();
     public List<Map<String,?>> listaPrivilegios(String idRol);
 }

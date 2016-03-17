@@ -5,7 +5,6 @@
  */
 package com.ps.dao;
 
-import com.ps.entidad.Usuario;
 import com.ps.interfaces.InterfaceUsuario;
 import com.ps.util.HibernateUtil;
 import java.util.ArrayList;
@@ -46,11 +45,7 @@ public class UsuarioDao implements InterfaceUsuario {
         }
     }
 
-    @Override
-    public List<Usuario> listarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+  
     @Override
     public List<Map<String,?>> listaPrivilegios(String idRol) {
         List<Map<String,?>> Lista = new ArrayList<>();

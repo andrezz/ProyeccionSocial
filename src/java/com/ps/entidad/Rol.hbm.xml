@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 17/03/2016 11:27:43 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ps.entidad.Rol" table="ROL" schema="PROSOCIAL" optimistic-lock="version">
         <id name="idrol" type="string">
@@ -26,17 +26,5 @@
         <property name="fechaMod" type="date">
             <column name="FECHA_MOD" length="7" />
         </property>
-        <set name="detUsuarioRols" table="DET_USUARIO_ROL" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="IDROL" length="12" not-null="true" />
-            </key>
-            <one-to-many class="com.ps.entidad.DetUsuarioRol" />
-        </set>
-        <set name="detRolPrivilegios" table="DET_ROL_PRIVILEGIO" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="IDROL" length="12" not-null="true" />
-            </key>
-            <one-to-many class="com.ps.entidad.DetRolPrivilegio" />
-        </set>
     </class>
 </hibernate-mapping>

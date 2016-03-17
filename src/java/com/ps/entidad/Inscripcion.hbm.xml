@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 17/03/2016 11:27:43 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ps.entidad.Inscripcion" table="INSCRIPCION" schema="PROSOCIAL" optimistic-lock="version">
         <id name="idinscripcion" type="string">
             <column name="IDINSCRIPCION" length="12" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="evento" class="com.ps.entidad.Evento" fetch="select">
-            <column name="IDEVENTO" length="12" not-null="true" />
-        </many-to-one>
         <many-to-one name="usuario" class="com.ps.entidad.Usuario" fetch="select">
             <column name="IDUSUARIO" length="12" not-null="true" />
+        </many-to-one>
+        <many-to-one name="evento" class="com.ps.entidad.Evento" fetch="select">
+            <column name="IDEVENTO" length="12" not-null="true" />
         </many-to-one>
         <property name="estadoIn" type="char">
             <column name="ESTADO_IN" length="1" not-null="true" />

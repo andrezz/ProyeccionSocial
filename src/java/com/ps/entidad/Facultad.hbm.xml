@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 17/03/2016 11:27:43 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ps.entidad.Facultad" table="FACULTAD" schema="PROSOCIAL" optimistic-lock="version">
         <id name="idfacultad" type="string">
@@ -13,6 +13,18 @@
         </property>
         <property name="nombreCortoFa" type="string">
             <column name="NOMBRE_CORTO_FA" length="10" />
+        </property>
+        <property name="usuarioCre" type="string">
+            <column name="USUARIO_CRE" length="12" />
+        </property>
+        <property name="usuarioMod" type="string">
+            <column name="USUARIO_MOD" length="12" />
+        </property>
+        <property name="fechaCre" type="date">
+            <column name="FECHA_CRE" length="7" />
+        </property>
+        <property name="fechaMod" type="date">
+            <column name="FECHA_MOD" length="7" />
         </property>
         <set name="escuelas" table="ESCUELA" inverse="true" lazy="true" fetch="select">
             <key>

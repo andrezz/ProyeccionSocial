@@ -1,5 +1,5 @@
 package com.ps.entidad;
-// Generated 01/07/2015 06:18:42 AM by Hibernate Tools 4.3.1
+// Generated 17/03/2016 11:27:41 AM by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -25,8 +25,8 @@ public class Asistencia  implements java.io.Serializable {
 
 
      private String idasistencia;
-     private Evento evento;
      private Usuario usuario;
+     private Evento evento;
      private Date fechaAs;
      private BigDecimal horasPs;
      private BigDecimal notaAl;
@@ -39,20 +39,20 @@ public class Asistencia  implements java.io.Serializable {
     }
 
 	
-    public Asistencia(String idasistencia, Evento evento, Usuario usuario, Date fechaAs, BigDecimal horasPs, BigDecimal notaAl, String usuarioCre, Date fechaCre) {
+    public Asistencia(String idasistencia, Usuario usuario, Evento evento, Date fechaAs, BigDecimal horasPs, BigDecimal notaAl, String usuarioCre, Date fechaCre) {
         this.idasistencia = idasistencia;
-        this.evento = evento;
         this.usuario = usuario;
+        this.evento = evento;
         this.fechaAs = fechaAs;
         this.horasPs = horasPs;
         this.notaAl = notaAl;
         this.usuarioCre = usuarioCre;
         this.fechaCre = fechaCre;
     }
-    public Asistencia(String idasistencia, Evento evento, Usuario usuario, Date fechaAs, BigDecimal horasPs, BigDecimal notaAl, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod) {
+    public Asistencia(String idasistencia, Usuario usuario, Evento evento, Date fechaAs, BigDecimal horasPs, BigDecimal notaAl, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod) {
        this.idasistencia = idasistencia;
-       this.evento = evento;
        this.usuario = usuario;
+       this.evento = evento;
        this.fechaAs = fechaAs;
        this.horasPs = horasPs;
        this.notaAl = notaAl;
@@ -75,16 +75,6 @@ public class Asistencia  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="IDEVENTO", nullable=false)
-    public Evento getEvento() {
-        return this.evento;
-    }
-    
-    public void setEvento(Evento evento) {
-        this.evento = evento;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="IDUSUARIO", nullable=false)
     public Usuario getUsuario() {
         return this.usuario;
@@ -92,6 +82,16 @@ public class Asistencia  implements java.io.Serializable {
     
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="IDEVENTO", nullable=false)
+    public Evento getEvento() {
+        return this.evento;
+    }
+    
+    public void setEvento(Evento evento) {
+        this.evento = evento;
     }
 
     @Temporal(TemporalType.DATE)

@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-  <schema-selection match-schema="PROSOCIAL"/>
-  <table-filter match-name="ASISTENCIA"/>
-  <table-filter match-name="PROYECTO"/>
-  <table-filter match-name="USUARIO"/>
-  <table-filter match-name="DET_AULA_USUARIO"/>
-  <table-filter match-name="DET_USUARIO_ROL"/>
-  <table-filter match-name="LINK"/>
+  <schema-selection/>
   <table-filter match-name="ROL"/>
+  <table-filter match-name="PROYECTO"/>
+  <table-filter match-name="ASISTENCIA"/>
+  <table-filter match-name="LINK"/>
   <table-filter match-name="FACULTAD"/>
-  <table-filter match-name="AULA"/>
-  <table-filter match-name="EVENTO"/>
-  <table-filter match-name="ARCHIVO"/>
-  <table-filter match-name="INSCRIPCION"/>
-  <table-filter match-name="TIPO_EVENTO"/>
-  <table-filter match-name="DET_PRIVILEGIO_LINK"/>
-  <table-filter match-name="ESCUELA"/>
-  <table-filter match-name="DET_ROL_PRIVILEGIO"/>
-  <table-filter match-name="PRIVILEGIO"/>
   <table-filter match-name="CICLO"/>
+  <table-filter match-name="EVENTO"/>
+  <table-filter match-name="NOTIFICACION"/>
+  <table-filter match-name="ESCUELA"/>
+  <table-filter match-name="TIPO_EVENTO"/>
+  <table-filter match-name="INSCRIPCION"/>
+  <table-filter match-name="USUARIO"/>
+  <table-filter match-name="ARCHIVO"/>
+  <table-filter match-name="AULA"/>
+  <table-filter match-name="PRIVILEGIO"/>
 </hibernate-reverse-engineering>

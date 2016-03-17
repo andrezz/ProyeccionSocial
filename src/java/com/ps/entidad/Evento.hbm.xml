@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 17/03/2016 11:27:43 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ps.entidad.Evento" table="EVENTO" schema="PROSOCIAL" optimistic-lock="version">
         <id name="idevento" type="string">
             <column name="IDEVENTO" length="12" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="proyecto" class="com.ps.entidad.Proyecto" fetch="select">
-            <column name="IDPROYECTO" length="12" not-null="true" />
-        </many-to-one>
         <many-to-one name="tipoEvento" class="com.ps.entidad.TipoEvento" fetch="select">
             <column name="IDTIPO_EVENTO" length="12" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proyecto" class="com.ps.entidad.Proyecto" fetch="select">
+            <column name="IDPROYECTO" length="12" not-null="true" />
         </many-to-one>
         <property name="nombreEv" type="string">
             <column name="NOMBRE_EV" length="30" not-null="true" />
@@ -38,12 +38,6 @@
         <property name="fechaMod" type="date">
             <column name="FECHA_MOD" length="7" />
         </property>
-        <set name="inscripcions" table="INSCRIPCION" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="IDEVENTO" length="12" not-null="true" />
-            </key>
-            <one-to-many class="com.ps.entidad.Inscripcion" />
-        </set>
         <set name="archivos" table="ARCHIVO" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="IDEVENTO" length="12" not-null="true" />
@@ -55,6 +49,12 @@
                 <column name="IDEVENTO" length="12" not-null="true" />
             </key>
             <one-to-many class="com.ps.entidad.Asistencia" />
+        </set>
+        <set name="inscripcions" table="INSCRIPCION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDEVENTO" length="12" not-null="true" />
+            </key>
+            <one-to-many class="com.ps.entidad.Inscripcion" />
         </set>
     </class>
 </hibernate-mapping>

@@ -1,5 +1,5 @@
 package com.ps.entidad;
-// Generated 01/07/2015 06:18:42 AM by Hibernate Tools 4.3.1
+// Generated 17/03/2016 11:27:41 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -29,6 +29,10 @@ public class Ciclo  implements java.io.Serializable {
      private Character estadoCi;
      private Date fechaInicio;
      private Date fechaFin;
+     private String usuarioCre;
+     private String usuarioMod;
+     private Date fechaCre;
+     private Date fechaMod;
      private Set aulas = new HashSet(0);
 
     public Ciclo() {
@@ -38,12 +42,16 @@ public class Ciclo  implements java.io.Serializable {
     public Ciclo(String idciclo) {
         this.idciclo = idciclo;
     }
-    public Ciclo(String idciclo, String nombreCi, Character estadoCi, Date fechaInicio, Date fechaFin, Set aulas) {
+    public Ciclo(String idciclo, String nombreCi, Character estadoCi, Date fechaInicio, Date fechaFin, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod, Set aulas) {
        this.idciclo = idciclo;
        this.nombreCi = nombreCi;
        this.estadoCi = estadoCi;
        this.fechaInicio = fechaInicio;
        this.fechaFin = fechaFin;
+       this.usuarioCre = usuarioCre;
+       this.usuarioMod = usuarioMod;
+       this.fechaCre = fechaCre;
+       this.fechaMod = fechaMod;
        this.aulas = aulas;
     }
    
@@ -97,6 +105,46 @@ public class Ciclo  implements java.io.Serializable {
     
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
+    }
+
+    
+    @Column(name="USUARIO_CRE", length=12)
+    public String getUsuarioCre() {
+        return this.usuarioCre;
+    }
+    
+    public void setUsuarioCre(String usuarioCre) {
+        this.usuarioCre = usuarioCre;
+    }
+
+    
+    @Column(name="USUARIO_MOD", length=12)
+    public String getUsuarioMod() {
+        return this.usuarioMod;
+    }
+    
+    public void setUsuarioMod(String usuarioMod) {
+        this.usuarioMod = usuarioMod;
+    }
+
+    @Temporal(TemporalType.DATE)
+    @Column(name="FECHA_CRE", length=7)
+    public Date getFechaCre() {
+        return this.fechaCre;
+    }
+    
+    public void setFechaCre(Date fechaCre) {
+        this.fechaCre = fechaCre;
+    }
+
+    @Temporal(TemporalType.DATE)
+    @Column(name="FECHA_MOD", length=7)
+    public Date getFechaMod() {
+        return this.fechaMod;
+    }
+    
+    public void setFechaMod(Date fechaMod) {
+        this.fechaMod = fechaMod;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="ciclo")

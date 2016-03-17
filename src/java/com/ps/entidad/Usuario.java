@@ -1,5 +1,5 @@
 package com.ps.entidad;
-// Generated 01/07/2015 06:18:42 AM by Hibernate Tools 4.3.1
+// Generated 17/03/2016 11:27:41 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -31,16 +31,14 @@ public class Usuario  implements java.io.Serializable {
      private char estadoUs;
      private String codigo;
      private String idArchivoFoto;
-     private Set detUsuarioRols = new HashSet(0);
      private Set asistencias = new HashSet(0);
-     private Set detAulaUsuarios = new HashSet(0);
      private Set inscripcions = new HashSet(0);
 
     public Usuario() {
     }
 
 	
-    public Usuario(String idusuario, String nombreUs, String apellidopUs, String apellidomUs, String usuario, String clave, char estadoUs, String idArchivoFoto) {
+    public Usuario(String idusuario, String nombreUs, String apellidopUs, String apellidomUs, String usuario, String clave, char estadoUs) {
         this.idusuario = idusuario;
         this.nombreUs = nombreUs;
         this.apellidopUs = apellidopUs;
@@ -48,9 +46,8 @@ public class Usuario  implements java.io.Serializable {
         this.usuario = usuario;
         this.clave = clave;
         this.estadoUs = estadoUs;
-        this.idArchivoFoto= idArchivoFoto;
     }
-    public Usuario(String idusuario, String nombreUs, String apellidopUs, String apellidomUs, String usuario, String clave, String email, char estadoUs,String idArchivoFoto, String codigo, Set detUsuarioRols, Set asistencias, Set detAulaUsuarios, Set inscripcions) {
+    public Usuario(String idusuario, String nombreUs, String apellidopUs, String apellidomUs, String usuario, String clave, String email, char estadoUs, String codigo, String idArchivoFoto, Set asistencias, Set inscripcions) {
        this.idusuario = idusuario;
        this.nombreUs = nombreUs;
        this.apellidopUs = apellidopUs;
@@ -60,10 +57,8 @@ public class Usuario  implements java.io.Serializable {
        this.email = email;
        this.estadoUs = estadoUs;
        this.codigo = codigo;
-       this.idArchivoFoto= idArchivoFoto;
-       this.detUsuarioRols = detUsuarioRols;
+       this.idArchivoFoto = idArchivoFoto;
        this.asistencias = asistencias;
-       this.detAulaUsuarios = detAulaUsuarios;
        this.inscripcions = inscripcions;
     }
    
@@ -148,33 +143,25 @@ public class Usuario  implements java.io.Serializable {
     public void setEstadoUs(char estadoUs) {
         this.estadoUs = estadoUs;
     }
-    
-    @Column(name="ID_ARCHIVO_FOTO", nullable=true, length=12)
-    
-    public String getIdArchivoFoto() {
-        return idArchivoFoto;
-    }
 
-    public void setIdArchivoFoto(String idArchivoFoto) {
-        this.idArchivoFoto = idArchivoFoto;
-    }
     
     @Column(name="CODIGO", length=10)
     public String getCodigo() {
         return this.codigo;
     }
-
+    
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="usuario")
-    public Set getDetUsuarioRols() {
-        return this.detUsuarioRols;
+    
+    @Column(name="ID_ARCHIVO_FOTO", length=12)
+    public String getIdArchivoFoto() {
+        return this.idArchivoFoto;
     }
     
-    public void setDetUsuarioRols(Set detUsuarioRols) {
-        this.detUsuarioRols = detUsuarioRols;
+    public void setIdArchivoFoto(String idArchivoFoto) {
+        this.idArchivoFoto = idArchivoFoto;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="usuario")
@@ -184,15 +171,6 @@ public class Usuario  implements java.io.Serializable {
     
     public void setAsistencias(Set asistencias) {
         this.asistencias = asistencias;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="usuario")
-    public Set getDetAulaUsuarios() {
-        return this.detAulaUsuarios;
-    }
-    
-    public void setDetAulaUsuarios(Set detAulaUsuarios) {
-        this.detAulaUsuarios = detAulaUsuarios;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="usuario")

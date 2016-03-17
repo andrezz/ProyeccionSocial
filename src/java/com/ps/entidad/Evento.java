@@ -1,5 +1,5 @@
 package com.ps.entidad;
-// Generated 01/07/2015 06:18:42 AM by Hibernate Tools 4.3.1
+// Generated 17/03/2016 11:27:41 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -27,8 +27,8 @@ public class Evento  implements java.io.Serializable {
 
 
      private String idevento;
-     private Proyecto proyecto;
      private TipoEvento tipoEvento;
+     private Proyecto proyecto;
      private String nombreEv;
      private Date fechaEv;
      private String lugarEv;
@@ -37,27 +37,27 @@ public class Evento  implements java.io.Serializable {
      private String usuarioMod;
      private Date fechaCre;
      private Date fechaMod;
-     private Set inscripcions = new HashSet(0);
      private Set archivos = new HashSet(0);
      private Set asistencias = new HashSet(0);
+     private Set inscripcions = new HashSet(0);
 
     public Evento() {
     }
 
 	
-    public Evento(String idevento, Proyecto proyecto, TipoEvento tipoEvento, String nombreEv, char estadoEv, String usuarioCre, Date fechaCre) {
+    public Evento(String idevento, TipoEvento tipoEvento, Proyecto proyecto, String nombreEv, char estadoEv, String usuarioCre, Date fechaCre) {
         this.idevento = idevento;
-        this.proyecto = proyecto;
         this.tipoEvento = tipoEvento;
+        this.proyecto = proyecto;
         this.nombreEv = nombreEv;
         this.estadoEv = estadoEv;
         this.usuarioCre = usuarioCre;
         this.fechaCre = fechaCre;
     }
-    public Evento(String idevento, Proyecto proyecto, TipoEvento tipoEvento, String nombreEv, Date fechaEv, String lugarEv, char estadoEv, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod, Set inscripcions, Set archivos, Set asistencias) {
+    public Evento(String idevento, TipoEvento tipoEvento, Proyecto proyecto, String nombreEv, Date fechaEv, String lugarEv, char estadoEv, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod, Set archivos, Set asistencias, Set inscripcions) {
        this.idevento = idevento;
-       this.proyecto = proyecto;
        this.tipoEvento = tipoEvento;
+       this.proyecto = proyecto;
        this.nombreEv = nombreEv;
        this.fechaEv = fechaEv;
        this.lugarEv = lugarEv;
@@ -66,9 +66,9 @@ public class Evento  implements java.io.Serializable {
        this.usuarioMod = usuarioMod;
        this.fechaCre = fechaCre;
        this.fechaMod = fechaMod;
-       this.inscripcions = inscripcions;
        this.archivos = archivos;
        this.asistencias = asistencias;
+       this.inscripcions = inscripcions;
     }
    
      @Id 
@@ -84,16 +84,6 @@ public class Evento  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="IDPROYECTO", nullable=false)
-    public Proyecto getProyecto() {
-        return this.proyecto;
-    }
-    
-    public void setProyecto(Proyecto proyecto) {
-        this.proyecto = proyecto;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="IDTIPO_EVENTO", nullable=false)
     public TipoEvento getTipoEvento() {
         return this.tipoEvento;
@@ -101,6 +91,16 @@ public class Evento  implements java.io.Serializable {
     
     public void setTipoEvento(TipoEvento tipoEvento) {
         this.tipoEvento = tipoEvento;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="IDPROYECTO", nullable=false)
+    public Proyecto getProyecto() {
+        return this.proyecto;
+    }
+    
+    public void setProyecto(Proyecto proyecto) {
+        this.proyecto = proyecto;
     }
 
     
@@ -184,15 +184,6 @@ public class Evento  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="evento")
-    public Set getInscripcions() {
-        return this.inscripcions;
-    }
-    
-    public void setInscripcions(Set inscripcions) {
-        this.inscripcions = inscripcions;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="evento")
     public Set getArchivos() {
         return this.archivos;
     }
@@ -208,6 +199,15 @@ public class Evento  implements java.io.Serializable {
     
     public void setAsistencias(Set asistencias) {
         this.asistencias = asistencias;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="evento")
+    public Set getInscripcions() {
+        return this.inscripcions;
+    }
+    
+    public void setInscripcions(Set inscripcions) {
+        this.inscripcions = inscripcions;
     }
 
 

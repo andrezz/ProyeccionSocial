@@ -1,15 +1,11 @@
 package com.ps.entidad;
-// Generated 01/07/2015 06:18:42 AM by Hibernate Tools 4.3.1
+// Generated 17/03/2016 11:27:41 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,8 +27,6 @@ public class Rol  implements java.io.Serializable {
      private String usuarioMod;
      private Date fechaCre;
      private Date fechaMod;
-     private Set detUsuarioRols = new HashSet(0);
-     private Set detRolPrivilegios = new HashSet(0);
 
     public Rol() {
     }
@@ -45,7 +39,7 @@ public class Rol  implements java.io.Serializable {
         this.usuarioCre = usuarioCre;
         this.fechaCre = fechaCre;
     }
-    public Rol(String idrol, String nombreRo, char estadoRo, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod, Set detUsuarioRols, Set detRolPrivilegios) {
+    public Rol(String idrol, String nombreRo, char estadoRo, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod) {
        this.idrol = idrol;
        this.nombreRo = nombreRo;
        this.estadoRo = estadoRo;
@@ -53,8 +47,6 @@ public class Rol  implements java.io.Serializable {
        this.usuarioMod = usuarioMod;
        this.fechaCre = fechaCre;
        this.fechaMod = fechaMod;
-       this.detUsuarioRols = detUsuarioRols;
-       this.detRolPrivilegios = detRolPrivilegios;
     }
    
      @Id 
@@ -127,24 +119,6 @@ public class Rol  implements java.io.Serializable {
     
     public void setFechaMod(Date fechaMod) {
         this.fechaMod = fechaMod;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="rol")
-    public Set getDetUsuarioRols() {
-        return this.detUsuarioRols;
-    }
-    
-    public void setDetUsuarioRols(Set detUsuarioRols) {
-        this.detUsuarioRols = detUsuarioRols;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="rol")
-    public Set getDetRolPrivilegios() {
-        return this.detRolPrivilegios;
-    }
-    
-    public void setDetRolPrivilegios(Set detRolPrivilegios) {
-        this.detRolPrivilegios = detRolPrivilegios;
     }
 
 

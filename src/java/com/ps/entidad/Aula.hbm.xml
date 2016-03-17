@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01/07/2015 06:18:44 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 17/03/2016 11:27:43 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.ps.entidad.Aula" table="AULA" schema="PROSOCIAL" optimistic-lock="version">
         <id name="idaula" type="string">
@@ -32,11 +32,5 @@
         <property name="fechaMod" type="date">
             <column name="FECHA_MOD" length="7" />
         </property>
-        <set name="detAulaUsuarios" table="DET_AULA_USUARIO" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="IDAULA" length="12" not-null="true" />
-            </key>
-            <one-to-many class="com.ps.entidad.DetAulaUsuario" />
-        </set>
     </class>
 </hibernate-mapping>

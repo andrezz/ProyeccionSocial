@@ -1,15 +1,11 @@
 package com.ps.entidad;
-// Generated 01/07/2015 06:18:42 AM by Hibernate Tools 4.3.1
+// Generated 17/03/2016 11:27:41 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,8 +27,6 @@ public class Privilegio  implements java.io.Serializable {
      private String usuarioMod;
      private Date fechaCre;
      private Date fechaMod;
-     private Set detPrivilegioLinks = new HashSet(0);
-     private Set detRolPrivilegios = new HashSet(0);
 
     public Privilegio() {
     }
@@ -45,7 +39,7 @@ public class Privilegio  implements java.io.Serializable {
         this.usuarioCre = usuarioCre;
         this.fechaCre = fechaCre;
     }
-    public Privilegio(String idprivilegio, String nombrePr, char estadoPr, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod, Set detPrivilegioLinks, Set detRolPrivilegios) {
+    public Privilegio(String idprivilegio, String nombrePr, char estadoPr, String usuarioCre, String usuarioMod, Date fechaCre, Date fechaMod) {
        this.idprivilegio = idprivilegio;
        this.nombrePr = nombrePr;
        this.estadoPr = estadoPr;
@@ -53,8 +47,6 @@ public class Privilegio  implements java.io.Serializable {
        this.usuarioMod = usuarioMod;
        this.fechaCre = fechaCre;
        this.fechaMod = fechaMod;
-       this.detPrivilegioLinks = detPrivilegioLinks;
-       this.detRolPrivilegios = detRolPrivilegios;
     }
    
      @Id 
@@ -127,24 +119,6 @@ public class Privilegio  implements java.io.Serializable {
     
     public void setFechaMod(Date fechaMod) {
         this.fechaMod = fechaMod;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="privilegio")
-    public Set getDetPrivilegioLinks() {
-        return this.detPrivilegioLinks;
-    }
-    
-    public void setDetPrivilegioLinks(Set detPrivilegioLinks) {
-        this.detPrivilegioLinks = detPrivilegioLinks;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="privilegio")
-    public Set getDetRolPrivilegios() {
-        return this.detRolPrivilegios;
-    }
-    
-    public void setDetRolPrivilegios(Set detRolPrivilegios) {
-        this.detRolPrivilegios = detRolPrivilegios;
     }
 
 
